@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Estadísticas con chart.js</title>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h4 class="lead text-center text-uppercase"><strong>Los diez países más poblados en el mundo</strong></h4>
+				<canvas id="popChart" width="600" height="400"></canvas>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h4 class="lead text-center text-uppercase"><strong>Los diez países más poblados en el mundo</strong></h4>
+				<canvas id="otroChart" width="600" height="400"></canvas>
+			</div>
+		</div>
+	</div>
+	<script src="node_modules/chart.js/dist/Chart.min.js"></script>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script>
+		var popCanvas = $("#popChart");
+		var otroChart = $("#otroChart");
+		var popCanvas = document.getElementById("popChart");
+		var popCanvas = document.getElementById("popChart").getContext("2d");
+		var barChart = new Chart(popCanvas, {
+			type: 'bar',
+			data: {
+				labels: ["China", "India", "United States", "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Japan"],
+				datasets: [{
+					label: 'POPULAR',
+					data: [1379302771, 1281935911, 326625791, 260580739, 207353391, 204924861, 190632261, 157826578, 142257519, 126451398],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.6)',
+					'rgba(54, 162, 235, 0.6)',
+					'rgba(255, 206, 86, 0.6)',
+					'rgba(75, 192, 192, 0.6)',
+					'rgba(153, 102, 255, 0.6)',
+					'rgba(255, 159, 64, 0.6)',
+					'rgba(255, 99, 132, 0.6)',
+					'rgba(54, 162, 235, 0.6)',
+					'rgba(255, 206, 86, 0.6)',
+					'rgba(75, 192, 192, 0.6)',
+					'rgba(153, 102, 255, 0.6)'
+					],
+					borderWidth: 1
+				}]
+			}
+		});
+
+		var speedData = {
+			labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
+			datasets: [{
+				label: "Car Speed",
+				data: [0, 59, 75, 20, 20, 55, 40],
+			}]
+		};
+
+		var chartOptions = {
+			legend: {
+				display: true,
+				position: 'top',
+				labels: {
+					boxWidth: 80,
+					fontColor: 'black'
+				}
+			}
+		};
+		var lineChart = new Chart(otroChart, {
+			type: 'line',
+			data: speedData,
+			options: chartOptions
+		});
+
+
+		
+	</script>
+https://code.tutsplus.com/es/tutorials/getting-started-with-chartjs-line-and-bar-charts--cms-28384
+</body>
+</html>
